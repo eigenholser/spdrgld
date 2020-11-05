@@ -1,0 +1,1 @@
+--dummy migration to make flyway happy for now.
