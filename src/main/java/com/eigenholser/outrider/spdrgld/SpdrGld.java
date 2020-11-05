@@ -11,6 +11,7 @@ import javax.persistence.Index;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.UniqueConstraint;
 
 /*
    Date, 
@@ -31,7 +32,7 @@ import javax.persistence.TemporalType;
  */
 
 @Entity
-@Table(indexes = {@Index(columnList = ("date"))})
+@Table(indexes = {@Index(columnList = ("date"))}, uniqueConstraints = {@UniqueConstraint(columnNames = "date")})
 public class SpdrGld {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
