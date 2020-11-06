@@ -1,6 +1,7 @@
 package com.eigenholser.outrider.spdrgld;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -38,8 +39,7 @@ public class SpdrGld {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
-	@Temporal(TemporalType.DATE)
-	private Date date;
+	private LocalDate date;
 	private BigDecimal gldClosePrice;
 	private BigDecimal lbmaGoldPrice;
 	private BigDecimal navPerGldInGold;
@@ -56,7 +56,7 @@ public class SpdrGld {
 		return id;
 	}
 
-	public Date getDate() {
+	public LocalDate getDate() {
 		return date;
 	}
 

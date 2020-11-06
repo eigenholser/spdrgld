@@ -1,5 +1,6 @@
 package com.eigenholser.outrider.spdrgld;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import org.apache.logging.log4j.LogManager;
@@ -22,7 +23,7 @@ public class SpdrGldController {
 	SpdrGldRepository repo;
 	
 	@GetMapping("/spdrgld/{date}")
-	public SpdrGld getRowByDate(@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") Date date) {
+	public SpdrGld getRowByDate(@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate date) {
 		return repo.findByDate(date);
 	}
 	

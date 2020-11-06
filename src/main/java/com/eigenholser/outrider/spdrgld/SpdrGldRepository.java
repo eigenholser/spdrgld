@@ -1,12 +1,12 @@
 package com.eigenholser.outrider.spdrgld;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
 public interface SpdrGldRepository extends CrudRepository<SpdrGld, Long> {
-	List<SpdrGld> findByDateBetween(Date dateStart, Date dateEnd);
+	List<SpdrGld> findByDateBetween(LocalDate dateStart, LocalDate dateEnd);
 
-	SpdrGld findByDate(Date date);
+	SpdrGld findByDate(LocalDate date);
 }
