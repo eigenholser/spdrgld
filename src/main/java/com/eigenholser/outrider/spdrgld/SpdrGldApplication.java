@@ -13,5 +13,4 @@ public class SpdrGldApplication {
 		logger.debug("***** Startup *****");
 		SpringApplication.run(SpdrGldApplication.class, args);
 	}
-
 }
