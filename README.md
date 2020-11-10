@@ -2,6 +2,22 @@
 
 An API for SPDR GLD NAV data using Spring Boot.
 
+# Docker
+
+Build the Docker image:
+
+    docker build -t spdrgld:latest .
+
+Run the container:
+
+    docker run --rm -d --link pg-docker \
+        -e OUTRIDER_DB_URL="jdbc:postgresql://pg-docker:5432/outrider" \
+        -p 8080:8080 \
+        -t \
+        spdrgld:latest
+
+This assumes a running PostgreSQL container with port 5432 exposed.
+
 # Read Me First
 The following was discovered as part of building this project:
 
