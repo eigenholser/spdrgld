@@ -10,4 +10,6 @@ public interface SpdrGldRepository extends CrudRepository<SpdrGld, Long> {
 	Page<SpdrGld> findByDateBetween(LocalDate dateStart, LocalDate dateEnd, Pageable pageable);
 
 	SpdrGld findByDate(LocalDate date);
+	
+	SpdrGld findFirstByOrderByDateDesc();
 }

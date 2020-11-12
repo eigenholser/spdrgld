@@ -1,7 +1,6 @@
 package com.eigenholser.outrider.spdrgld;
 
 import java.time.LocalDate;
-import java.util.List;
 import java.util.Optional;
 
 import org.apache.logging.log4j.LogManager;
@@ -22,7 +21,6 @@ import org.springframework.web.server.ResponseStatusException;
 @RestController
 public class SpdrGldController {
 	private static final Logger logger = LogManager.getLogger(SpdrGldController.class);
-	private static final int MAX_PAGE_SIZE = 50;
 
 	@Autowired
 	SpdrGldService spdrGldSvc;
@@ -30,6 +28,11 @@ public class SpdrGldController {
 	@GetMapping("/spdrgld/{date}")
 	public SpdrGld getRowByDate(@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate date) {
 		return spdrGldSvc.getSpdrGldByDate(date);
+	}
+	
+	@GetMapping("/spdrgld/latest")
+	public SpdrGld findByDateMax() {
+		return spdrGldSvc.getSpdrGldByDateMax();
 	}
 
 	@GetMapping("/spdrgld/{startDate}/{endDate}")
