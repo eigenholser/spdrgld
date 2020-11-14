@@ -25,13 +25,17 @@ public class SpdrGldService {
 	public SpdrGld getSpdrGldByDate(LocalDate date) {
 		return repo.findByDate(date);
 	}
+	
+	public SpdrGld getSpdrGldByDateMax() {
+		return repo.findFirstByOrderByDateDesc();
+	}
 
 	public Page<SpdrGld> getSpdrGldDateRange(LocalDate startDate, LocalDate endDate, Optional<Integer> optPageSize,
 			Optional<Integer> optPageNum, Optional<String> optSortOrder) {
 
 		Integer pageSize = MAX_PAGE_SIZE;
 		Integer pageNum = DEFAULT_PAGE_NUM;
-		String sortOrder = SORT_ASC; //default sort order
+		String sortOrder = SORT_ASC; // default sort order
 
 		if (optSortOrder.isPresent()) {
 			sortOrder = optSortOrder.get().toUpperCase();
@@ -44,8 +48,8 @@ public class SpdrGldService {
 		if (optPageNum.isPresent()) {
 			pageNum = optPageNum.get() - 1;
 		}
-		
-		if(!sortOrder.equals(SORT_ASC) && !sortOrder.equals(SORT_DESC)) {
+
+		if (!sortOrder.equals(SORT_ASC) && !sortOrder.equals(SORT_DESC)) {
 			throw new IllegalArgumentException("Invalid sort order!");
 		}
 
@@ -61,9 +65,11 @@ public class SpdrGldService {
 			throw new IllegalArgumentException("Invalid page number!");
 		}
 
-		return repo.findByDateBetween(startDate, endDate, //
+		Page<SpdrGld> spdrGldPage = repo.findByDateBetween(startDate, endDate, //
 				PageRequest.of(pageNum, pageSize,
 						Sort.by(sortOrder.equals(SORT_ASC) ? Sort.Direction.ASC : Sort.Direction.DESC, "date")));
+		logger.debug("SpdrGld page object: " + spdrGldPage.getContent());
+		return spdrGldPage;
 	}
 
 	public SpdrGld save(SpdrGld spdrGld) {
