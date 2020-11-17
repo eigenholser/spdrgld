@@ -1,4 +1,4 @@
-package com.eigenholser.outrider.spdrgld;
+package com.eigenholser.outrider.spdrgld.service;
 
 import java.time.LocalDate;
 import java.util.Optional;
@@ -12,6 +12,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.eigenholser.outrider.spdrgld.model.SpdrGld;
+import com.eigenholser.outrider.spdrgld.repository.SpdrGldRepository;
 
 @Service
 public class SpdrGldService {

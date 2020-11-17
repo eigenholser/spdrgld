@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import com.eigenholser.outrider.spdrgld.SpdrGldService;
 import com.eigenholser.outrider.spdrgld.model.SpdrGld;
+import com.eigenholser.outrider.spdrgld.service.SpdrGldService;
 
 @RestController
 public class SpdrGldController {

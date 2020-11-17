@@ -1,4 +1,4 @@
-package com.eigenholser.outrider.spdrgld;
+package com.eigenholser.outrider.spdrgld.service;
 
 import java.time.LocalDate;
 
