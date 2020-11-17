@@ -10,6 +10,8 @@ import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Service;
 
+import com.eigenholser.outrider.spdrgld.model.IsharesSlv;
+
 @Service
 public class IsharesSlvService {
 	private static final EntityManagerFactory ENTITY_MANAGER_FACTORY = Persistence

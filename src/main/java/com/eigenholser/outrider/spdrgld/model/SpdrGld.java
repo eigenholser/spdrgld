@@ -1,4 +1,4 @@
-package com.eigenholser.outrider.spdrgld;
+package com.eigenholser.outrider.spdrgld.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

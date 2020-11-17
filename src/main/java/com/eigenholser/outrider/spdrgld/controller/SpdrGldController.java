@@ -1,4 +1,4 @@
-package com.eigenholser.outrider.spdrgld;
+package com.eigenholser.outrider.spdrgld.controller;
 
 import java.time.LocalDate;
 import java.util.Optional;
@@ -17,6 +17,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
+
+import com.eigenholser.outrider.spdrgld.SpdrGldService;
+import com.eigenholser.outrider.spdrgld.model.SpdrGld;
 
 @RestController
 public class SpdrGldController {
