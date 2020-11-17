@@ -24,7 +24,7 @@ public class SpdrGldController {
 
 	@Autowired
 	SpdrGldService spdrGldSvc;
-
+	
 	@GetMapping("/spdrgld/{date}")
 	public SpdrGld getRowByDate(@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate date) {
 		return spdrGldSvc.getSpdrGldByDate(date);

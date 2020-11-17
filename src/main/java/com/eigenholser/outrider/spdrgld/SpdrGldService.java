@@ -25,7 +25,7 @@ public class SpdrGldService {
 	public SpdrGld getSpdrGldByDate(LocalDate date) {
 		return repo.findByDate(date);
 	}
-	
+
 	public SpdrGld getSpdrGldByDateMax() {
 		return repo.findFirstByOrderByDateDesc();
 	}
