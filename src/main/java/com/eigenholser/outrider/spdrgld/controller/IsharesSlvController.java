@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.eigenholser.outrider.spdrgld.model.IsharesSlv;
 import com.eigenholser.outrider.spdrgld.service.IsharesSlvService;
 
-@RestController("/ishares")
+@RestController
 public class IsharesSlvController {
 	@Autowired
 	IsharesSlvService isharesSlvSvc;
 
-	@GetMapping("/{date}")
+	@GetMapping("/ishares/{date}")
 	public IsharesSlv getIsharesRowByDate(@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate date) {
 		return isharesSlvSvc.getIsharesSlvByDate(date);
 	}
