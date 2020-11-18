@@ -15,6 +15,6 @@ public class IsharesSlvService {
 	IsharesSlvQueries queries;
 	
 	public IsharesSlv getIsharesSlvByDate(LocalDate date) {
-		return queries.getIsharesSlvByDate(date);
+		return queries.getIsharesSlvByDate2(date);
 	}
 }

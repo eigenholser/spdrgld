@@ -17,10 +17,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "ishares_slv")
-public class IsharesSlv {
+public class IsharesSlv implements java.io.Serializable {
+	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	private Integer id;
 
 	private LocalDate date;
 	
@@ -33,7 +35,19 @@ public class IsharesSlv {
 	@Column(name = "shares_outstanding")
 	private BigDecimal sharesOutstanding;
 
-	public long getId() {
+	public IsharesSlv() {
+		
+	}
+	
+	public IsharesSlv(IsharesSlv slv) {
+		this.id = slv.getId();
+		this.date = slv.getDate();
+		this.indexLevel = slv.getIndexLevel();
+		this.exDividends = slv.getExDividends();
+		this.sharesOutstanding = slv.getSharesOutstanding();
+	}
+	
+	public Integer getId() {
 		return id;
 	}
 
@@ -57,10 +71,37 @@ public class IsharesSlv {
 		return sharesOutstanding;
 	}
 
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public void setDate(LocalDate date) {
+		this.date = date;
+	}
+
+	public void setIndexLevel(BigDecimal indexLevel) {
+		this.indexLevel = indexLevel;
+	}
+
+	public void setNavPerShare(BigDecimal navPerShare) {
+		this.navPerShare = navPerShare;
+	}
+
+	public void setExDividends(BigDecimal exDividends) {
+		this.exDividends = exDividends;
+	}
+
+	public void setSharesOutstanding(BigDecimal sharesOutstanding) {
+		this.sharesOutstanding = sharesOutstanding;
+	}
+
 	@Override
 	public String toString() {
 		return "IsharesSlv [id=" + id + ", date=" + date + ", indexLevel=" + indexLevel + ", navPerShare=" + navPerShare
 				+ ", exDividends=" + exDividends + ", sharesOutstanding=" + sharesOutstanding + "]";
 	}
-
 }

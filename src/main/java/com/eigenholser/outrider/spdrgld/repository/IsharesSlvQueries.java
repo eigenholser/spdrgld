@@ -7,6 +7,9 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 
 import org.springframework.stereotype.Service;
 
@@ -20,7 +23,7 @@ public class IsharesSlvQueries {
 	
 	public IsharesSlv getIsharesSlvByDate(LocalDate date) {
 		String query = "SELECT i FROM IsharesSlv i WHERE i.date = :date";
-
+		
 		TypedQuery<IsharesSlv> tq = em.createQuery(query, IsharesSlv.class);
 		tq.setParameter("date", date);
 		IsharesSlv slv = null;
@@ -34,5 +37,13 @@ public class IsharesSlvQueries {
 			em.close();
 		}
 		return null;
+	}
+	
+	public IsharesSlv getIsharesSlvByDate2(LocalDate date) {
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		CriteriaQuery<IsharesSlv> cq = cb.createQuery(IsharesSlv.class);
+		Root<IsharesSlv> root = cq.from(IsharesSlv.class);
+		cq.where(cb.equal(root.get("date"), date));
+		return em.createQuery(cq.multiselect(root)).getSingleResult();
 	}
 }
